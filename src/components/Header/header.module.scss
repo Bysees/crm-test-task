@@ -1,0 +1,29 @@
+@import '../../assets/styles/vars';
+
+.wrapper {
+  color: #fff;
+  padding: 0 32px;
+
+  color: #fff;
+  background-color: $violet;
+
+  font-size: 20px;
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.column {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  margin-left: 24px;
+}
+
+.username {
+  margin-left: 16px;
+}

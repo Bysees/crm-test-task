@@ -1,0 +1,54 @@
+//? Вынести в imports отдельный файл
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+@import '../assets/styles/vars';
+
+.wrapper {
+  height: 100vh;
+  overflow: hidden;
+  font-family: $font-base;
+
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "aside main"
+  ;
+  grid-template-rows: 80px auto;
+  grid-template-columns: 300px auto;
+
+  @media screen and (max-width: 768px) {
+    grid-template-areas:
+      "header"
+      "main"
+    ;
+    grid-template-rows: 80px auto;
+    grid-template-columns: auto;
+  }
+}
+
+
+.header {
+  grid-area: header;
+}
+
+.aside {
+  grid-area: aside;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.main {
+  grid-area: main;
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  background-color: $violet;
+}

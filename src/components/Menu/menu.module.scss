@@ -1,0 +1,89 @@
+@import '../../assets/styles/vars';
+
+.wrapper {
+  padding: 24px 0px 24px 20px;
+  box-shadow: 0px 0px 5px 0px #02006040;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  nav {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  li {
+    position: relative;
+  }
+
+  li a:active,
+  li a:visited,
+  li a:focus,
+  li a {
+    color: black;
+    text-decoration: none;
+  }
+
+  li a,
+  li button {
+    display: flex;
+    align-items: center;
+  }
+
+  li a span,
+  li button span {
+    margin-left: 16px;
+  }
+
+  li div.indicator {
+    position: absolute;
+    top: 0;
+    right: -3px;
+    border-radius: 3px;
+
+    height: 100%;
+    width: 6px;
+    background-color: $violet;
+    transform: scale(0);
+    transition: transform 0.2s;
+  }
+
+  li div.indicator.active {
+    transform: scale(1);
+  }
+
+  li button {
+    font-size: 20px;
+    font-weight: 600;
+    background-color: transparent;
+    position: relative;
+    width: 100%;
+  }
+
+  li button::after {
+    content: '';
+    background: url('../../assets/images/menu_bar/triangle.svg') center center no-repeat;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 16px;
+    position: absolute;
+
+    transition: transform 0.2s;
+  }
+
+  li button.show::after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+
+  li+li {
+    margin-top: 40px;
+  }
+
+  li ul {
+    margin-top: 32px;
+    margin-left: 44px;
+  }
+
+}
