@@ -1,5 +1,5 @@
 const url = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address";
-const token = "fc31f53f86e92ecfb68e2faa6680ab4aed7f2f64";
+const token = process.env.REACT_APP_API_TOKEN || '';
 
 type RequestBody = {
   query: string

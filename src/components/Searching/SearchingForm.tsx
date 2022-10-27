@@ -1,11 +1,12 @@
-// import cn from 'classnames'
 import { FormEvent, ChangeEvent, useState, FC } from 'react'
 import styles from './searching.module.scss'
+import loupe from '../../assets/images/menu_bar/loupe-white.svg'
 
 type Props = {
   loading: boolean
   onSubmit: (query: string) => Promise<void>
 }
+
 
 const SearchingForm: FC<Props> = ({ loading, onSubmit }) => {
   const [query, setQuery] = useState<string>('');
@@ -23,7 +24,10 @@ const SearchingForm: FC<Props> = ({ loading, onSubmit }) => {
   return (
     <form onSubmit={onSumbitHandler} className={styles.form}>
       <input value={query} onChange={onChangeHandler} />
-      <button disabled={loading}>Поиск</button>
+      <button disabled={loading}>
+        <img src={loupe} alt="icon" />
+        <span>Поиск</span>
+      </button>
     </form>
   )
 }

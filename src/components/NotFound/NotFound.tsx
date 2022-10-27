@@ -1,11 +1,8 @@
-
-
 const NotFound = () => {
-
   return (
-    <div>
-      <h1 style={{ fontSize: 26, fontWeight: 700 }}>Раздел находится в разработке...</h1>
-    </div>
+    <h1 style={{ fontSize: '1.3em', fontWeight: 700 }}>
+      Раздел находится в разработке...
+    </h1>
   )
 }
 

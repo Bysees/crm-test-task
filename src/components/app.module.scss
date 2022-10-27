@@ -2,10 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
 @import '../assets/styles/vars';
 
+html {
+  font-size: 20px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
+}
+
 .wrapper {
   height: 100vh;
   overflow: hidden;
   font-family: $font-base;
+  position: relative;
 
   display: grid;
   grid-template-areas:
@@ -20,11 +29,10 @@
       "header"
       "main"
     ;
-    grid-template-rows: 80px auto;
+    grid-template-rows: 60px auto;
     grid-template-columns: auto;
   }
 }
-
 
 .header {
   grid-area: header;
@@ -32,10 +40,6 @@
 
 .aside {
   grid-area: aside;
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
 }
 
 .main {

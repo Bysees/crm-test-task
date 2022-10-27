@@ -1,5 +1,5 @@
 export { default as Header } from './Header/Header'
-export { default as Aside } from './Menu/Menu'
+export { default as Menu } from './Menu/Menu'
 export { default as Main } from './Main/Main'
 export { default as Searching } from './Searching/Searching'
 export { default as News } from './News/News'

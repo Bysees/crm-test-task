@@ -1,29 +1,50 @@
 @import '../../assets/styles/vars';
 
 .wrapper {
-  color: #fff;
   padding: 0 32px;
 
-  color: #fff;
   background-color: $violet;
 
-  font-size: 20px;
-  font-weight: bold;
+
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 16px;
+  }
 }
 
 .column {
   display: flex;
   align-items: center;
+
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 700;
+
+  & img {
+    @media screen and (max-width: 768px) {
+      width: 30px;
+    }
+
+    @media screen and (min-width: 769px) {
+      pointer-events: none;
+    }
+
+    transition: transform 0.2s;
+  }
+
+  .showing {
+    transform: rotate(-90deg);
+
+  }
+
 }
 
+.column+.column,
+.username,
 .title {
-  margin-left: 24px;
-}
-
-.username {
   margin-left: 16px;
 }

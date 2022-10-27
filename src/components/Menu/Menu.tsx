@@ -1,21 +1,9 @@
+import { FC } from 'react'
 import cn from 'classnames'
-import { Link, useLocation } from "react-router-dom"
-import { useState, FC } from 'react'
-
+import MenuList from './MenuList'
 import appStyles from '../app.module.scss'
 import styles from './menu.module.scss'
-
-import house from '../../assets/images/menu_bar/house.svg'
-import loupe from '../../assets/images/menu_bar/loupe.svg'
-import table from '../../assets/images/menu_bar/table.svg'
-import calendar from '../../assets/images/menu_bar/calendar.svg'
-import geo from '../../assets/images/menu_bar/geo.svg'
-import tv from '../../assets/images/menu_bar/tv.svg'
-import screw from '../../assets/images/menu_bar/screw.svg'
-import man from '../../assets/images/menu_bar/man.svg'
-import cashbox from '../../assets/images/menu_bar/cashbox.svg'
-import exit from '../../assets/images/menu_bar/exit.svg'
-
+import { calendar, cashbox, exit, geo, house, loupe, man, screw, table, tv } from './icons'
 
 const list = [
   { icon: house, title: 'Главная', link: '/' },
@@ -34,13 +22,15 @@ const list = [
   { icon: exit, title: 'Выход', link: '/exit' }
 ]
 
-// type List = typeof list
+export type List = typeof list
 
+type Props = {
+  isShowMenu: boolean
+}
 
-const Aside = () => {
-
+const Menu: FC<Props> = ({ isShowMenu }) => {
   return (
-    <aside className={cn(appStyles.aside, styles.wrapper)}>
+    <aside className={cn(appStyles.aside, styles.wrapper, isShowMenu && styles.wrapper_show)}>
       <nav>
         <MenuList list={list} />
       </nav>
@@ -48,38 +38,4 @@ const Aside = () => {
   )
 }
 
-
-const MenuList = ({ list }: any) => {
-
-  let { pathname } = useLocation();
-  const [isShowList, setShowList] = useState<boolean>(false)
-
-  return (
-    <ul className={styles.list}>
-      {list.map(({ icon, title, link, list }: any) => (
-        <li className={styles.item} key={title}>
-          {link
-            ? <>
-              <Link to={link} className={cn(pathname === link ? styles.active : '')}>
-                <img src={icon} alt="icon" />
-                <span>{title}</span>
-              </Link>
-              <div className={cn(styles.indicator, pathname === link ? styles.active : '')} />
-            </>
-            : <>
-              <button
-                onClick={() => setShowList(isShow => !isShow)}
-                className={cn(isShowList ? styles.show : '')}>
-                <img src={icon} alt="icon" />
-                <span>{title}</span>
-              </button>
-              {list && isShowList && <MenuList list={list} />}
-            </>
-          }
-        </li>
-      ))}
-    </ul>
-  )
-}
-
-export default Aside
+export default Menu

@@ -1,12 +1,15 @@
+import { useState } from 'react'
+import { Header, Menu, Main } from './'
 import styles from './app.module.scss'
-import { Header, Aside, Main } from './'
+
 
 const App = () => {
+  const [isShowMenu, setShowMenu] = useState<boolean>(false)
 
   return (
     <div className={styles.wrapper}>
-      <Header />
-      <Aside />
+      <Header setShowMenu={setShowMenu} isShowMenu={isShowMenu} />
+      <Menu isShowMenu={isShowMenu} />
       <Main />
     </div>
   )

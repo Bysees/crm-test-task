@@ -2,13 +2,13 @@
 
 .wrapper {
   h1 {
-    font-size: 26px;
+    font-size: 1.3em;
     font-weight: 700;
   }
 
-  p {
+  h3 {
     margin-top: 16px;
-    font-size: 20px;
+    font-size: 1em;
     font-weight: 500;
   }
 }
@@ -18,14 +18,22 @@
   height: 70px;
   display: flex;
 
+  @media screen and (max-width: 768px) {
+    height: 40px;
+  }
+
   input {
     flex: auto 1 0;
     border: 3px solid $violet;
     border-radius: 10px;
 
     padding: 0 24px;
-    font-size: 20px;
+    font-size: 1em;
     font-weight: 500;
+
+    @media screen and (max-width: 768px) {
+      padding: 0 8px;
+    }
 
     &:focus {
       outline: 3px solid $focus-color;
@@ -33,17 +41,37 @@
   }
 
   button {
-    margin-left: 24px;
     flex: 15% 0 0;
-    min-width: 130px;
 
-    font-size: 26px;
+    padding: 0 15px;
+    margin-left: 1rem;
+
+    font-size: 1.3em;
+    font-weight: 700;
 
     color: #fff;
     background-color: $violet;
-    border-radius: 10px;
 
+    border-radius: 10px;
     transition: transform 0.1s;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    & img {
+      @media screen and (max-width: 768px) {
+        width: 26px;
+      }
+    }
+
+    & span {
+      margin-left: 10px;
+
+      @media screen and (max-width: 1024px) {
+        display: none;
+      }
+    }
 
     &:focus {
       outline: 3px solid $focus-color;
@@ -63,19 +91,20 @@
   padding: 24px;
 
   h2 {
-    margin-bottom: 16px;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
     font-weight: 700;
-    font-size: 26px;
   }
 
   ul li {
     padding: 16px 0;
-    font-size: 20px;
+    font-size: 1rem;
+    line-height: 1.2rem;
     font-weight: 500;
     border-top: 1px solid #D7D7D7;
   }
 
   .notFound {
-    font-size: 26px;
+    font-size: 1.3rem
   }
 }

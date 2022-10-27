@@ -1,10 +1,8 @@
 import { useState } from 'react'
-
 import { fetchAddresses } from '../../api'
 import SearchingForm from './SearchingForm'
-
+import { Loader } from '../'
 import styles from './searching.module.scss'
-import Loader from '../Loader/Loader'
 
 type Address = {
   value: string
@@ -13,6 +11,7 @@ type Address = {
 type FetchResponse = {
   suggestions: Address[]
 }
+
 
 const Searching = () => {
   const [loading, setLoading] = useState<boolean>(false)
@@ -35,7 +34,7 @@ const Searching = () => {
   return (
     <div className={styles.wrapper}>
       <h1>Поиск адресов</h1>
-      <p>Введите интересующий вас адрес</p>
+      <h3>Введите интересующий вас адрес</h3>
 
       <SearchingForm onSubmit={getAddresses} loading={loading} />
 
